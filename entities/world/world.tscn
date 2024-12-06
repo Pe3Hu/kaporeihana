@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpq0g6jrlkuea"]
+
+[ext_resource type="Script" path="res://entities/world/world.gd" id="1_sbgiu"]
+[ext_resource type="PackedScene" uid="uid://c1anowodo7b2l" path="res://entities/icosahedron/icosahedron.tscn" id="2_1t5kl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vy0is"]
+
+[sub_resource type="Sky" id="Sky_mvce8"]
+sky_material = SubResource("ProceduralSkyMaterial_vy0is")
+
+[sub_resource type="Environment" id="Environment_08trg"]
+background_mode = 2
+sky = SubResource("Sky_mvce8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dtu4b"]
+size = Vector2(10, 10)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_sbgiu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_08trg")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00502586, 0.00399554, 0.00360811)
+visible = false
+mesh = SubResource("PlaneMesh_dtu4b")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
+light_color = Color(1, 1, 0.356863, 1)
+spot_range = 14.813
+spot_angle = 39.55
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Icosahedron" parent="." instance=ExtResource("2_1t5kl")]
+transform = Transform3D(-0.332307, 0.535957, 0.776094, 0.849893, 0.526956, 0, -0.408967, 0.659597, -0.630617, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

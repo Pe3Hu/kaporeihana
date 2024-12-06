@@ -1,0 +1,6 @@
+res://entities/icosahedron face/icosahedron face.tscn
+res://entities/world/world.tscn
+res://script/Global.gd
+res://entities/icosahedron face/icosahedron face.gd
+res://entities/icosahedron/icosahedron.tscn
+res://entities/icosahedron/icosahedron.gd

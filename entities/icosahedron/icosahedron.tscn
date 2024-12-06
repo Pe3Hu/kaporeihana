@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1anowodo7b2l"]
+
+[ext_resource type="Script" path="res://entities/icosahedron/icosahedron.gd" id="1_jpco6"]
+[ext_resource type="PackedScene" uid="uid://bbyh6kb6a1h1t" path="res://entities/icosahedron face/icosahedron face.tscn" id="2_agybx"]
+
+[node name="Icosahedron" type="Node3D"]
+transform = Transform3D(-0.630617, 0, 0.776094, 0, 1, 0, -0.776094, 0, -0.630617, 0, 0, 0)
+script = ExtResource("1_jpco6")
+
+[node name="Faces" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="IcosahedronFace" parent="Faces" instance=ExtResource("2_agybx")]
