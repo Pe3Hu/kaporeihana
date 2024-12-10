@@ -36,6 +36,6 @@ spot_angle = 39.55
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Icosahedron" parent="." instance=ExtResource("2_1t5kl")]
-transform = Transform3D(-0.332307, 0.535957, 0.776094, 0.849893, 0.526956, 0, -0.408967, 0.659597, -0.630617, 0, 0, 0)
+transform = Transform3D(-0.332307, 0.535957, 0.776094, 0.849893, 0.526956, -3.54408e-09, -0.408967, 0.659597, -0.630617, 0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

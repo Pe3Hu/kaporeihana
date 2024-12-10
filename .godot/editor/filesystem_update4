@@ -1,6 +1,14 @@
-res://entities/icosahedron face/icosahedron face.tscn
-res://entities/world/world.tscn
-res://script/Global.gd
-res://entities/icosahedron face/icosahedron face.gd
 res://entities/icosahedron/icosahedron.tscn
 res://entities/icosahedron/icosahedron.gd
+res://entities/world/world.tscn
+res://entities/icosahedron face/icosahedron face.tscn
+res://entities/triangle/triangle vertex/triangle vertex.tscn
+res://entities/icosahedron/icosahedron vertex/icosahedron vertex.tscn
+res://entities/icosahedron/icosahedron vertex/icosahedron vertex.gd
+res://entities/icosahedron/icosahedron face/icosahedron face.tscn
+res://script/Global.gd
+res://entities/icosahedron/icosahedron face/icosahedron face.gd
+res://entities/icosahedron/icosahedron edge old/icosahedron edge.tscn
+res://entities/icosahedron/icosahedron edge/icosahedron edge.gd
+res://entities/icosahedron/icosahedron edge/icosahedron edge.tscn
+res://entities/icosahedron/icosahedron edge old/icosahedron edge.gd

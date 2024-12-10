@@ -20,7 +20,9 @@ func init_arr() -> void:
 	
 func init_dict() -> void:
 	dict.icosahedron = {}
+	
 	init_icosahedron_vertex()
+	init_icosahedron_face()
 	
 func init_direction() -> void:
 	dict.direction = {}
@@ -73,6 +75,29 @@ func init_icosahedron_vertex() -> void:
 				dict.icosahedron.vertex[_i] = vertex
 				break
 	
+func init_icosahedron_face() -> void:
+	dict.icosahedron.face = [
+		[0,1,2],
+		[0,2,3],
+		[0,3,4],
+		[0,4,5],
+		[0,5,1],
+		[6,11,10],
+		[6,10,9],
+		[6,9,8],
+		[6,8,7],
+		[6,7,11],
+		[1,9,10],
+		[2,10,11],
+		[3,11,7],
+		[4,7,8],
+		[5,8,9],
+		[7,4,3],
+		[8,5,4],
+		[9,1,5],
+		[10,2,1],
+		[11,3,2],
+	]
 func init_color():
 	pass
 	#var h = 360.0

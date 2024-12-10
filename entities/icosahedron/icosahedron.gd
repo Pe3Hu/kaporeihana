@@ -2,62 +2,50 @@
 class_name Icosahedron extends Node3D
 
 
+@export var faces: Node3D
+@export var vertices: Node3D
+@export var edges: Node3D
+
+var vertex_edges: Dictionary
 
 
 func _ready() -> void:
 	rotation.z = PI / 3 * 0.97
 	
+	init_vertices()
 	init_faces()
+	init_egdes()
+	
+func init_vertices() -> void:
+	for index in Global.dict.icosahedron.vertex.size():
+		var vertex = IcosahedronVertex.new()
+		vertex.index = index
+		vertex.icosahedron = self
 	
 func init_faces() -> void:
-	var face_indexs = [
-		[0,1,2],
-		[0,2,3],
-		[0,3,4],
-		[0,4,5],
-		[0,5,1],
-		[6,11,10],
-		[6,10,9],
-		[6,9,8],
-		[6,8,7],
-		[6,7,11],
-		[1,9,10],
-		[2,10,11],
-		[3,11,7],
-		[4,7,8],
-		[5,8,9],
-		[7,4,3],
-		[8,5,4],
-		[9,1,5],
-		[10,2,1],
-		[11,3,2],
-	]
-	
-	for indexs in face_indexs:
-		var vertices = []
-		
-		for index in indexs:
-			vertices.append(Global.dict.icosahedron.vertex[index])
-		
+	for indexs in Global.dict.icosahedron.face:
 		var face = IcosahedronFace.new()
-		var hue = float(face_indexs.find(indexs)) / face_indexs.size()
-		var color = Color.from_hsv(hue,1.0, 1.0)
-		face.set_vertices_and_color(vertices, color)
-		%Faces.add_child(face)
+		face.indexs = indexs
+		face.icosahedron = self
 	
-	var k = 0.2
-	
-	for vertex in Global.dict.icosahedron.vertex:
-		var mesh = MeshInstance3D.new()
-		mesh.mesh = SphereMesh.new()
-		mesh.position = vertex
-		mesh.mesh.material = StandardMaterial3D.new()
-		mesh.mesh.radius *= k
-		mesh.mesh.height *= k
-		
-		var hue = float(Global.dict.icosahedron.vertex.find(vertex)) / Global.dict.icosahedron.vertex.size()
-		mesh.mesh.material.albedo_color = Color.from_hsv(hue,1.0, 1.0)
-		%Faces.add_child(mesh)
+func init_egdes() -> void:
+	for face in faces.get_children():
+		for _i in face.vertices.size():
+			var a = face.vertices[_i]
+			var _j = (_i + 1) % face.vertices.size()
+			var b = face.vertices[_j]
+			var vertices = [a, b]
+			vertices.sort_custom(func(a, b): return vertices.find(a) > vertices.find(b))
+			
+			var flag = true
+			if vertex_edges.has(a):
+				if vertex_edges[a].has(b):
+					flag = false
+			
+			if flag:
+				var edge = IcosahedronEdge.new()
+				edge.vertices.append_array(vertices)
+				edge.icosahedron = self
 	
 func _process(delta: float) -> void:
 	rotation.y += delta * 0.
