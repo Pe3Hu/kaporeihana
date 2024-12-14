@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c87ahqm7pbvg6"]
+
+[ext_resource type="Script" path="res://entities/cube/cube vertex/cube vertex.gd" id="1_aqnps"]
+
+[node name="CubeVertex" type="MeshInstance3D"]
+script = ExtResource("1_aqnps")

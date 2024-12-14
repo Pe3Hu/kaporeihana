@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1anowodo7b2l"]
+
+[ext_resource type="Script" path="res://entities/cube/cube.gd" id="1_jpco6"]
+
+[node name="Cube" type="Node3D" node_paths=PackedStringArray("faces", "vertices", "edges")]
+script = ExtResource("1_jpco6")
+faces = NodePath("Faces")
+vertices = NodePath("Vertices")
+edges = NodePath("Edges")
+
+[node name="Faces" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Vertices" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Edges" type="Node3D" parent="."]
+unique_name_in_owner = true

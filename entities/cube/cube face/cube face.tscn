@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbyh6kb6a1h1t"]
+
+[ext_resource type="Script" path="res://entities/cube/cube face/cube face.gd" id="1_yay41"]
+
+[node name="CubeFace" type="MeshInstance3D"]
+script = ExtResource("1_yay41")
