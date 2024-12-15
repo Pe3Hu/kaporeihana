@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdcmmf12f2tw5"]
+
+[ext_resource type="Script" path="res://entities/cube/cube subedge/cube subedge.gd" id="1_6spiu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c8awc"]
+
+[node name="CubeEdge" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_c8awc")
+script = ExtResource("1_6spiu")
